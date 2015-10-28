@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="en">
+    <head>
+        <title>{% block title %}{{ SITE_NAME }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="{{ AUTHOR }}" />
+        <!-- Enable responsiveness on mobile devices-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" type="text/css" />
+
+        {% if SYNTAX_THEME is defined %}
+            <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ SYNTAX_THEME }}.css" type="text/css" />
+        {% else %}   
+            <link rel="stylesheet" href="{{ SITEURL }}/theme/css/syntax.css" type="text/css" />
+        {% endif %}    
+        <link href="http://fonts.googleapis.com/css?family=Gentium+Book Basic:400italic,400,700italic,700" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="container">
+        {% include "header.html" %}
+            <div id="content">
+                {% block content %}{% endblock %} 
+            </div>
+        {% include "footer.html" %}
+    </div> 
+    </body>
+</html>

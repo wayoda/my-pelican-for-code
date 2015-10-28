@@ -1,0 +1,22 @@
+<div id="header">
+    <div id="header-left" >
+        <span class="header-title"><a href="{{ SITEURL }}/index.html">{{ SITE_NAME }}</a></span>
+        </br>
+        <span class="header-description">{{ SITE_DESCRIPTION }}</span>
+    </div>
+    <div id="header-nav">
+        <ul>
+            {% if MENU is defined %}
+            {% for m in MENU %}
+            {% set menu_class = 'sidebar-menu-item ' %}
+            {% if output_file == m[1] %}
+            {% set menu_class = menu_class + 'active' %}
+            {% endif %}
+            <li><a class="{{ menu_class }}" href="{{ SITEURL }}/{{ m[1] }}">{{ m[0] }}</a></li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+<hr class="hr-top">   

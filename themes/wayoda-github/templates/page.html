@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+    <div id="page-menu">
+        <ul>
+            {% for k,v in page.metadata.iteritems() %}
+            {% if k=='pm' %}
+            {% set lnk=v.split("|") %}
+            {% for l in lnk %}
+            <li>{{ l }}</li>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+         </ul>
+    </div>
+{{ page.content }}
+</div>
+{% endblock content %}
